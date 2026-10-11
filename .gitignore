@@ -1,0 +1,18 @@
+# بيئة بايثون
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# بيانات التشغيل المحلية (قاعدة البيانات ومفتاح الجلسات): لا تُرفع أبداً
+instance/
+*.db
+*.sqlite3
+.env
+
+# أدوات المحررات والأنظمة
+.idea/
+.DS_Store
+Thumbs.db
+*.log

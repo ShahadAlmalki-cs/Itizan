@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% block body_class %}page-landing{% endblock %}
+{% block content %}
+<header class="topbar">
+  <a class="brand" href="/" aria-label="اتزان">
+    <img class="logo-mark" src="{{ asset('img/logo.png') }}" alt="" width="44" height="44">
+    <span class="brand-name">اتزان</span>
+  </a>
+  <nav class="topnav" id="topnav" aria-label="التنقل الرئيسي">
+    <a href="/" class="is-active">الرئيسية</a>
+    <a href="#about">عن اتزان</a>
+    <a href="#features">المميزات</a>
+    <a href="#privacy">الخصوصية</a>
+    <a class="nav-login" href="/login">تسجيل الدخول</a>
+  </nav>
+  <div class="topbar-actions">
+    <a class="btn btn-quiet" href="/login">تسجيل الدخول</a>
+    <a class="btn btn-primary" href="/register">إنشاء حساب</a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="topnav" aria-label="القائمة"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <h1>رحلتك نحو<br><span class="hl">توازن رقمي</span> أفضل</h1>
+      <p>منصة تعينك على بناء عادات رقمية صحية، عبر أهداف شخصية، وتحديات يومية بسيطة، وأنشطة بديلة عن الشاشة، ومتابعة لتقدمك يوماً بعد يوم.</p>
+      <a class="btn btn-primary btn-lg" href="/register">
+        <svg class="ic"><use href="#i-arrow"/></svg>
+        ابدأ رحلتك
+      </a>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 520 400" class="hero-svg" role="img" aria-label="طفل يجلس على تلّة ويقرأ كتاباً، وهاتفه مستريح جانباً، وحوله نباتات وفراشة وشمس">
+        <defs>
+          <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCF3E0"/><stop offset="1" stop-color="#F1E6CC"/></linearGradient>
+          <radialGradient id="hsun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#F9C4B3" stop-opacity=".9"/><stop offset="1" stop-color="#F9C4B3" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="520" height="400" fill="url(#hsky)"/>
+        <circle cx="412" cy="88" r="78" fill="url(#hsun)"/>
+        <circle cx="412" cy="88" r="32" fill="#F9C4B3"/>
+        <g fill="#fff" opacity=".78"><ellipse cx="96" cy="86" rx="40" ry="12"/><ellipse cx="120" cy="76" rx="26" ry="14"/><ellipse cx="72" cy="78" rx="20" ry="11"/>
+          <ellipse cx="300" cy="52" rx="30" ry="9"/><ellipse cx="318" cy="45" rx="18" ry="10"/></g>
+        <g fill="none" stroke="#0B1528" stroke-width="2.4" stroke-linecap="round" opacity=".45">
+          <path d="M214 112q7-8 14 0q7-8 14 0"/><path d="M252 90q5-6 10 0q5-6 10 0"/><path d="M190 80q4-5 8 0q4-5 8 0"/></g>
+        <path d="M0 252l92-92q10-10 20 0l62 70 78-98q10-12 20 0l108 134 56-52q10-10 22 0l62 60v126H0z" fill="#C9D1C4"/>
+        <path d="M0 292q96-58 196-26t170-6q70-24 154 14v126H0z" fill="#B3C2AE"/>
+        <rect x="82" y="232" width="9" height="58" rx="3" fill="#0B1528"/>
+        <circle cx="86" cy="214" r="30" fill="#8FA58C"/><circle cx="62" cy="236" r="20" fill="#A9BCA5"/><circle cx="112" cy="236" r="22" fill="#5F7A5C"/><circle cx="74" cy="204" r="10" fill="#A9BCA5" opacity=".75"/>
+        <path d="M0 322q130-40 262-8t258-12v98H0z" fill="#8FA58C"/>
+        <path d="M0 362q140-30 280-8t240-8v54H0z" fill="#7B9378"/>
+        <ellipse cx="136" cy="352" rx="46" ry="7" fill="#5F7A5C" opacity=".3"/>
+        <rect x="100" y="326" width="72" height="26" rx="6" fill="#C7B58A"/>
+        <ellipse cx="136" cy="326" rx="36" ry="9" fill="#E3D4AB"/>
+        <path d="M112 340q24 5 48 0" fill="none" stroke="#B3A173" stroke-width="2" stroke-linecap="round"/>
+        <g transform="rotate(-16 138 318)">
+          <rect x="122" y="268" width="34" height="58" rx="7" fill="#0B1528"/>
+          <rect x="126" y="274" width="26" height="46" rx="4" fill="#1B2B49"/>
+          <rect x="134" y="289" width="3.4" height="13" rx="1.6" fill="#F6866E"/><rect x="142" y="289" width="3.4" height="13" rx="1.6" fill="#F6866E"/>
+        </g>
+        <ellipse cx="338" cy="352" rx="82" ry="10" fill="#5F7A5C" opacity=".3"/>
+        <path d="M262 336q28-30 76-14q50-16 78 14q-30 16-78 10q-48 6-76-10z" fill="#0B1528"/>
+        <ellipse cx="270" cy="342" rx="17" ry="8" fill="#F5F2E6"/><ellipse cx="406" cy="342" rx="17" ry="8" fill="#F5F2E6"/>
+        <path d="M296 266q42-18 84 0l12 62q-54 18-108 0z" fill="#F4B3A0"/>
+        <ellipse cx="338" cy="264" rx="32" ry="11" fill="#EE9C86"/>
+        <path d="M326 272v20M350 272v20" stroke="#EE9C86" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="338" cy="226" r="31" fill="#F2C9A5"/>
+        <circle cx="307" cy="230" r="6" fill="#E8B48E"/>
+        <path d="M306 222q-2-38 34-38t32 38q-14-20-38-18-18 2-28 18z" fill="#0B1528"/>
+        <path d="M322 191q16-6 34 2" fill="none" stroke="#1B2B49" stroke-width="3" stroke-linecap="round"/>
+        <path d="M322 234q4 3 8 0M346 234q4 3 8 0" fill="none" stroke="#0B1528" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M334 245q6 4 12 0" fill="none" stroke="#0B1528" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="318" cy="243" r="4.5" fill="#F6866E" opacity=".35"/><circle cx="360" cy="243" r="4.5" fill="#F6866E" opacity=".35"/>
+        <path d="M306 276q-26 24-14 44M370 276q26 24 14 44" fill="none" stroke="#F4B3A0" stroke-width="16" stroke-linecap="round"/>
+        <path d="M284 290l54 10 54-10v38l-54 10-54-10z" fill="#0B1528"/>
+        <g stroke="#0B1528" stroke-width="2" stroke-linejoin="round" fill="#FFFDF6"><path d="M289 292l49 9v32l-49-9z"/><path d="M387 292l-49 9v32l49-9z"/></g>
+        <path d="M298 304l32 6M298 313l32 6M298 322l24 4M378 304l-32 6M378 313l-32 6M378 322l-24 4" stroke="#D5CCB2" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="291" cy="322" r="6.5" fill="#F2C9A5"/><circle cx="385" cy="322" r="6.5" fill="#F2C9A5"/>
+        <g transform="translate(424 214) rotate(-14)"><ellipse cx="-7" cy="-3" rx="9" ry="6" fill="#F6866E"/><ellipse cx="7" cy="-3" rx="9" ry="6" fill="#F6866E"/><ellipse cx="-5" cy="6" rx="6" ry="4" fill="#F9C4B3"/><ellipse cx="5" cy="6" rx="6" ry="4" fill="#F9C4B3"/><rect x="-1" y="-8" width="2" height="18" rx="1" fill="#0B1528"/></g>
+        <path d="M398 250q-20-4-34 8" fill="none" stroke="#0B1528" stroke-width="1.6" stroke-dasharray="2 5" stroke-linecap="round" opacity=".4"/>
+        <path d="M468 366q-2-30 2-58" stroke="#5F7A5C" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M469 336c-20-2-30-14-30-30 20 0 30 12 30 30z" fill="#8FA58C"/><path d="M470 322c20-2 30-14 30-30-20 0-30 12-30 30z" fill="#5F7A5C"/>
+        <path d="M471 308c-7-8-7-18 0-28 7 10 7 20 0 28z" fill="#F6866E"/>
+        <g stroke="#5F7A5C" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M36 372q4-16 8 0M44 372q6-20 11 0M52 372q4-14 8 0"/><path d="M216 378q4-14 8 0M224 378q6-18 11 0"/><path d="M420 376q4-14 8 0M428 376q6-18 11 0"/></g>
+        <g><path d="M70 376v-22" stroke="#5F7A5C" stroke-width="2.4"/><circle cx="70" cy="351" r="6" fill="#F6866E"/><circle cx="70" cy="351" r="2.4" fill="#FCF3E0"/>
+           <path d="M268 380v-18" stroke="#5F7A5C" stroke-width="2.4"/><circle cx="268" cy="358" r="5" fill="#F9C4B3"/><circle cx="268" cy="358" r="2" fill="#FCF3E0"/></g>
+        <g fill="#8FA58C" opacity=".8"><path d="M248 150c-6-2-9-7-8-12 6 1 9 6 8 12z"/><path d="M452 168c-6-2-9-7-8-12 6 1 9 6 8 12z" fill="#A9BCA5"/><path d="M180 196c-6-2-9-7-8-12 6 1 9 6 8 12z" fill="#5F7A5C"/></g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="features" id="features" aria-label="المميزات">
+    <article>
+      <svg class="ic ic-lg"><use href="#i-target"/></svg>
+      <h3>أهداف شخصية</h3>
+      <p>اختر هدفاً أو أكثر يناسبك</p>
+    </article>
+    <article>
+      <svg class="ic ic-lg"><use href="#i-star"/></svg>
+      <h3>تحديات يومية</h3>
+      <p>خطوات صغيرة أثرها كبير</p>
+    </article>
+    <article>
+      <svg class="ic ic-lg"><use href="#i-leaf"/></svg>
+      <h3>أنشطة بديلة</h3>
+      <p>اكتشف ما تحبه خارج الشاشة</p>
+    </article>
+    <article>
+      <svg class="ic ic-lg"><use href="#i-chart"/></svg>
+      <h3>متابعة التقدم</h3>
+      <p>شاهد تطورك بوضوح</p>
+    </article>
+  </section>
+
+  <section class="problem" id="about">
+    <h2>التحدي الذي يعالجه اتزان: الإدمان الرقمي</h2>
+    <p>هو استخدام مفرط أو قهري للتقنية يُفقد صاحبه السيطرة على مدة الاستخدام وتكراره، فيتأثر أداؤه الدراسي وعلاقاته وصحته. وأكثر من يتأثر به الأطفال واليافعون والشباب.</p>
+    <p>لا يكتفي اتزان بتنبيه المستخدم إلى المشكلة، بل يمنحه كل يوم خطوة واقعية بديلة يستطيع إنجازها وقياس أثرها.</p>
+  </section>
+
+  <section class="about">
+    <h2>كيف يعمل اتزان؟</h2>
+    <ol class="steps">
+      <li><strong>أنشئ حسابك</strong><span>باسمك واسم مستخدم وكلمة مرور فقط، ليبقى تقدمك محفوظاً عندك.</span></li>
+      <li><strong>اختر أهدافك وأكمل مهام اليوم</strong><span>لكل هدف تختاره (حتى ثلاثة أهداف) مهمة بسيطة كل يوم، وتسجّل إكمالها بضغطة زر.</span></li>
+      <li><strong>تابع تقدمك</strong><span>اطّلع على أيام التزامك ونقاطك، وقارن ساعات استخدامك للهاتف أسبوعاً بعد أسبوع.</span></li>
+    </ol>
+  </section>
+
+  <section class="privacy" id="privacy">
+    <svg class="ic ic-lg"><use href="#i-shield"/></svg>
+    <div>
+      <h2>خصوصيتك محفوظة</h2>
+      <p>لا يطلب اتزان إلا اسماً واسم مستخدم وكلمة مرور. كل ما يُسجَّل في حسابك هو ما تدخله بنفسك، وتُحفظ كلمة المرور بصيغة محمية لا يمكن قراءتها، ويمكنك حذف حسابك وجميع بياناتك في أي وقت.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <svg class="ic"><use href="#i-leaf"/></svg>
+  <span>اتزان... خطوة صغيرة نحو حياة أمتع.</span>
+</footer>
+<script src="{{ asset('js/landing.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% block title %}اتزان — لوحة التحكم{% endblock %}
+{% block body_class %}page-app{% endblock %}
+{% block content %}
+<div class="backdrop" id="backdrop" hidden></div>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand brand-light" href="/">
+      <img class="logo-mark" src="{{ asset('img/logo.png') }}" alt="" width="44" height="44">
+      <span class="brand-name">اتزان</span>
+    </a>
+    <nav class="sidenav" aria-label="أقسام التطبيق">
+      <a href="#home"       data-view="home"><svg class="ic"><use href="#i-home"/></svg>الرئيسية</a>
+      <a href="#goals"      data-view="goals"><svg class="ic"><use href="#i-target"/></svg>أهدافي</a>
+      <a href="#challenges" data-view="challenges"><svg class="ic"><use href="#i-star"/></svg>تحدياتي</a>
+      <a href="#progress"   data-view="progress"><svg class="ic"><use href="#i-chart"/></svg>تقدمي</a>
+    </nav>
+    <div class="sidebar-foot">
+      <a class="who" href="#account"><svg class="ic"><use href="#i-user"/></svg><span id="whoName">حسابي</span></a>
+      <button class="logout" id="logoutBtn" type="button"><svg class="ic"><use href="#i-logout"/></svg>تسجيل الخروج</button>
+    </div>
+  </aside>
+
+  <main class="content">
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="القائمة" aria-expanded="false" aria-controls="sidebar"><svg class="ic"><use href="#i-menu"/></svg></button>
+
+    <!-- الرئيسية -->
+    <section class="view" id="view-home" aria-labelledby="homeTitle">
+      <header class="greet">
+        <svg class="ic ic-lg"><use href="#i-leaf"/></svg>
+        <div>
+          <h1 id="homeTitle">مرحباً، أنت على الطريق الصحيح</h1>
+          <p>كل خطوة صغيرة تصنع فرقاً كبيراً.</p>
+        </div>
+      </header>
+
+      <div class="home-grid">
+        <div class="card goal-card">
+          <div class="ring" id="weekRing" role="img" aria-label="الأيام المنجزة خلال آخر سبعة أيام">
+            <svg viewBox="0 0 100 100">
+              <circle class="ring-bg" cx="50" cy="50" r="42"/>
+              <circle class="ring-fg" id="ringFg" cx="50" cy="50" r="42"/>
+            </svg>
+            <div class="ring-text"><strong id="ringNum">0/7</strong><small>آخر 7 أيام</small></div>
+          </div>
+          <div class="goal-info">
+            <span class="muted" id="goalsLabel">أهدافي</span>
+            <ul class="goal-chips" id="goalChips"></ul>
+            <a class="link" href="#goals">تعديل الأهداف</a>
+          </div>
+        </div>
+
+        <div class="card today-card" id="todayCard">
+          <span class="muted" id="todayLabel">تحدي اليوم</span>
+          <ul class="today-list" id="todayList"></ul>
+        </div>
+      </div>
+
+      <div class="card tree-card" id="treeCard">
+        <div class="tree-top">
+          <h2 id="treeName">—</h2>
+          <span class="tree-chip" id="treeChip"><svg class="ic ic-sm" aria-hidden="true"><use href="#i-leaf" id="treeChipIcon"/></svg><span id="treeChipText"></span></span>
+        </div>
+        <div class="tree-scene" id="treeScene">
+          <div class="scene-sun" aria-hidden="true"></div>
+          <svg class="ic scene-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <div class="tree-stage" id="treeArt" role="img" aria-label="شجرتي"></div>
+        </div>
+        <div class="tree-meter">
+          <div class="tree-progress" id="treeBar" role="progressbar" aria-label="التقدم نحو المرحلة التالية" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="treeBarFill"></i></div>
+          <span class="tree-count" id="treeCount" dir="ltr">0/1</span>
+        </div>
+        <ol class="tree-path" id="homePath" aria-label="مراحل نمو الشجرة"></ol>
+      </div>
+
+      <div class="card usage-card">
+        <div>
+          <strong>كم ساعة استخدمت الهاتف اليوم؟</strong>
+          <p class="muted">تسجيل ذاتي اختياري. المهم جودة الاستخدام لا مدته وحدها، وبه تقيس تقدمك من أسبوع لآخر.</p>
+        </div>
+        <div class="usage-input">
+          <label for="usageHours" class="sr-only">عدد الساعات</label>
+          <input id="usageHours" type="number" min="0" max="24" step="0.5" inputmode="decimal" placeholder="0.0" dir="ltr">
+          <label for="usageQuality" class="sr-only">جودة الاستخدام</label>
+          <select id="usageQuality">
+            <option value="">كيف كان استخدامك؟</option>
+            <option value="purposeful">هادف ومفيد</option>
+            <option value="balanced">متوازن</option>
+            <option value="aimless">تصفّح بلا هدف</option>
+          </select>
+          <button class="btn btn-ghost" id="usageSave" type="button">حفظ</button>
+        </div>
+      </div>
+
+      <h3 class="section-label">أدوات سريعة</h3>
+      <div class="quick">
+        <a class="card quick-item" href="#progress"><svg class="ic ic-lg"><use href="#i-chart"/></svg>تقدّمي</a>
+        <a class="card quick-item" href="#challenges"><svg class="ic ic-lg"><use href="#i-leaf"/></svg>تحدياتي</a>
+        <a class="card quick-item" href="#goals"><svg class="ic ic-lg"><use href="#i-target"/></svg>تغيير الأهداف</a>
+      </div>
+    </section>
+
+    <!-- أهدافي -->
+    <section class="view" id="view-goals" aria-labelledby="goalsTitle" hidden>
+      <header class="view-head"><h1 id="goalsTitle">اختر أهدافك</h1><p>اختر من هدف إلى ثلاثة أهداف، ويُقترح لك تحدٍّ واحد لكل هدف كل يوم. يمكنك التغيير في أي وقت.</p></header>
+      <ul class="goal-list" id="goalList"></ul>
+      <div class="goals-foot">
+        <span class="muted" id="goalsCount"></span>
+        <button class="btn btn-primary" id="goalsSave" type="button">حفظ الأهداف</button>
+      </div>
+    </section>
+
+    <!-- تحدياتي -->
+    <section class="view" id="view-challenges" aria-labelledby="chTitle" hidden>
+      <header class="view-head"><h1 id="chTitle">تحدياتي</h1><p id="chSub">اختر لكل هدف التحدي الذي يناسب يومك.</p></header>
+      <div class="week-banner">
+        <div class="week-banner-text"><strong id="chGoal">—</strong><span>آخر 7 أيام</span></div>
+        <ol class="week-strip" id="weekStrip"></ol>
+      </div>
+      <div id="challengeGroups"></div>
+    </section>
+
+    <!-- تقدمي -->
+    <section class="view" id="view-progress" aria-labelledby="pgTitle" hidden>
+      <header class="view-head"><h1 id="pgTitle">تقدمي</h1><p>نظرة بسيطة على ما أنجزته.</p></header>
+      <div class="stats">
+        <div class="card stat"><svg class="ic"><use href="#i-calendar"/></svg><span>أيام الالتزام</span><strong id="stWeek">0/7</strong></div>
+        <div class="card stat"><svg class="ic"><use href="#i-flame"/></svg><span>أيام متتالية</span><strong id="stStreak">0</strong></div>
+        <div class="card stat"><svg class="ic"><use href="#i-star"/></svg><span>المهام المكتملة</span><strong id="stTotal">0</strong></div>
+        <div class="card stat"><svg class="ic"><use href="#i-trophy"/></svg><span>النقاط</span><strong id="stPoints">0</strong></div>
+      </div>
+      <div class="card">
+        <h3 class="section-label">آخر الأيام</h3>
+        <div class="bars" id="bars"></div>
+      </div>
+      <div class="card">
+        <h3 class="section-label">رحلة الشجرة</h3>
+        <ol class="tree-path large" id="progressPath" aria-label="مراحل نمو الشجرة"></ol>
+      </div>
+      <div class="card">
+        <h3 class="section-label">ساعات استخدام الهاتف (تسجيل ذاتي)</h3>
+        <div class="bars usage-bars" id="usageBars"></div>
+        <p class="usage-note" id="usageNote"></p>
+      </div>
+      <div class="card">
+        <h3 class="section-label">سجل الإنجازات</h3>
+        <ul class="history" id="history"></ul>
+      </div>
+    </section>
+
+    <!-- حسابي -->
+    <section class="view" id="view-account" aria-labelledby="acTitle" hidden>
+      <header class="view-head"><h1 id="acTitle">حسابي</h1><p>بيانات حسابك وإدارته.</p></header>
+      <div class="card account-info">
+        <div><span class="muted">الاسم</span><strong id="acName">—</strong></div>
+        <div><span class="muted">اسم المستخدم</span><strong id="acUser" dir="ltr">—</strong></div>
+      </div>
+      <div class="card danger-zone">
+        <h3 class="section-label">حذف الحساب</h3>
+        <p>يؤدي حذف الحساب إلى إزالة أهدافك وإنجازاتك وسجل الاستخدام وشجرتك نهائياً، ولا يمكن التراجع عنه.</p>
+        <div class="usage-input">
+          <label for="delPass" class="sr-only">كلمة المرور</label>
+          <input id="delPass" type="password" dir="ltr" autocomplete="current-password" placeholder="كلمة المرور للتأكيد">
+          <button class="btn btn-danger" id="deleteBtn" type="button">حذف حسابي</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+<script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}

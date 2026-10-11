@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}{% if mode == "register" %}إنشاء حساب{% else %}تسجيل الدخول{% endif %} — اتزان{% endblock %}
+{% block body_class %}page-auth{% endblock %}
+{% block content %}
+<main class="auth-wrap">
+  <section class="auth-card" id="panel-login" aria-labelledby="loginTitle" {% if mode != "login" %}hidden{% endif %}>
+    <h1 id="loginTitle">تسجيل الدخول</h1>
+    <p class="auth-sub">مرحباً بعودتك، تابع من حيث توقفت.</p>
+    <form class="auth-form" id="loginForm" novalidate>
+      <label for="loginUser">اسم المستخدم</label>
+      <input id="loginUser" name="username" type="text" dir="ltr" autocomplete="username" autocapitalize="none" spellcheck="false" required>
+      <label for="loginPass">كلمة المرور</label>
+      <input id="loginPass" name="password" type="password" dir="ltr" autocomplete="current-password" required>
+      <p class="form-error" id="loginError" role="alert" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">دخول</button>
+    </form>
+    <p class="auth-alt">ليس لديك حساب؟ <a class="link" href="/register">أنشئ حساباً جديداً</a></p>
+  </section>
+
+  <section class="auth-card" id="panel-register" aria-labelledby="regTitle" {% if mode != "register" %}hidden{% endif %}>
+    <h1 id="regTitle">إنشاء حساب</h1>
+    <p class="auth-sub">نطلب منك الحد الأدنى فقط: اسماً واسم مستخدم وكلمة مرور.</p>
+    <form class="auth-form" id="registerForm" novalidate>
+      <label for="regName">الاسم</label>
+      <input id="regName" name="display_name" type="text" autocomplete="nickname" maxlength="40" required>
+      <label for="regUser">اسم المستخدم</label>
+      <input id="regUser" name="username" type="text" dir="ltr" autocomplete="username" autocapitalize="none" spellcheck="false" maxlength="30" aria-describedby="regUserHint" required>
+      <small id="regUserHint">من 3 إلى 30 خانة: أحرف إنجليزية أو أرقام أو الشرطة السفلية (_).</small>
+      <label for="regPass">كلمة المرور</label>
+      <input id="regPass" name="password" type="password" dir="ltr" autocomplete="new-password" minlength="8" aria-describedby="regPassHint" required>
+      <small id="regPassHint">8 أحرف على الأقل.</small>
+      <p class="form-error" id="registerError" role="alert" hidden></p>
+      <button class="btn btn-primary btn-block" type="submit">إنشاء الحساب</button>
+    </form>
+    <p class="auth-alt">لديك حساب بالفعل؟ <a class="link" href="/login">سجّل الدخول</a></p>
+  </section>
+  <a class="auth-home" href="/">العودة إلى الصفحة الرئيسية</a>
+</main>
+<script src="{{ asset('js/auth.js') }}"></script>
+{% endblock %}
